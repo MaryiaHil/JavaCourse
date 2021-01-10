@@ -1,10 +1,10 @@
 package taskcode;
-/*
-Вводятся три разных числа. Найти, какое из них является средним (больше одного, но меньше другого).
- */
 
 import java.util.Scanner;
 
+/**
+ * Вводятся три разных числа. Найти, какое из них является средним (больше одного, но меньше другого).
+ */
 public class MiddleNumber {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);

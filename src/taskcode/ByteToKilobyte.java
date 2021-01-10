@@ -1,11 +1,11 @@
 package taskcode;
-/*
-Перевести число, введенное пользователем, в байты или килобайты в зависимости от его выбора.
-Чуть-чуть переделала, чтобы получать boolean и использовать его в if.
- */
 
 import java.util.Scanner;
 
+/**
+ * Перевести число, введенное пользователем, в байты или килобайты в зависимости от его выбора.
+ * Чуть-чуть переделала, чтобы получать boolean и использовать его в if.
+ */
 public class ByteToKilobyte {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);

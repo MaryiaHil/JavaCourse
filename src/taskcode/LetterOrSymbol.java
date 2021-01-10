@@ -1,11 +1,11 @@
 package taskcode;
-/*
-Вводится целое число, обозначающее код символа по таблице ASCII.
-Определить, это код английской буквы или какой-либо иной символ.
- */
 
 import java.util.Scanner;
 
+/**
+ * Вводится целое число, обозначающее код символа по таблице ASCII.
+ * Определить, это код английской буквы или какой-либо иной символ.
+ */
 public class LetterOrSymbol {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);

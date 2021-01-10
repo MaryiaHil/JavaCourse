@@ -1,10 +1,10 @@
 package taskcode;
-/*
-Определить, является ли год, который ввел пользователь, високосным или невисокосным.
- */
 
 import java.util.Scanner;
 
+/**
+ * Определить, является ли год, который ввел пользователь, високосным или невисокосным.
+ */
 public class LeapYear {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
