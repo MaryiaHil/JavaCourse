@@ -1,4 +1,4 @@
-package taskcode;
+package homework1.taskcode;
 
 /**
  * Вводятся два целых числа. Проверить делится ли первое на второе.
