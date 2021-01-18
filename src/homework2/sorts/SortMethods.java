@@ -2,10 +2,10 @@ package homework2.sorts;
 
 import java.util.Random;
 
-public class SortsMethods {
+public class SortMethods {
 
     // Bubble sorting algorithm
-    public static int[] bubbleSort(int[] arr) {
+    public static void bubbleSort(int[] arr) {
         int size = arr.length; // the length of the array
         int tempVar = 0; // the temporary variable which will be used for swapping
 
@@ -20,11 +20,10 @@ public class SortsMethods {
                 }
             }
         }
-        return arr;
     }
 
     // Shaker sorting algorithm (enhanced Bubble sorting)
-    public static int[] shakerSort(int[] arr) {
+    public static void shakerSort(int[] arr) {
         int tempVar = 0; // the temporary variable which will be used for swapping
         int leftSide = 0; // the beginning of the array
         int rightSide = arr.length - 1; // the end of the array - 1
@@ -49,8 +48,6 @@ public class SortsMethods {
             }
             leftSide++; // to lessen the amount of iterations
         } while (leftSide < rightSide);
-
-        return arr;
     }
 
     // The method for creating an array of random length and with random numbers
