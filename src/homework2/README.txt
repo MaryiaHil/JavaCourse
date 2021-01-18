@@ -17,6 +17,9 @@
 Сортировка.
 
 3. Блок-схема.
+4. sorts/SortsMain.java
+   sorts/SortsMethods.java
+
 
 
 
