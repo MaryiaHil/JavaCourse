@@ -1,13 +1,13 @@
 package homework3.runners;
 
-import homework3.calcs.additional.CalculatorWithCounterAutoInterface;
+import homework3.calcs.additional.CalculatorWithCounterAutoCompositeInterface;
 import homework3.calcs.api.ICalculator;
 import homework3.calcs.simple.CalculatorWithMathExtends;
 
-public class CalculatorWithCounterAutoInterfaceMain {
+public class CalculatorWithCounterAutoCompositeInterfaceMain {
     public static void main(String[] args) {
         ICalculator obj = new CalculatorWithMathExtends();
-        CalculatorWithCounterAutoInterface calc = new CalculatorWithCounterAutoInterface(obj);
+        CalculatorWithCounterAutoCompositeInterface calc = new CalculatorWithCounterAutoCompositeInterface(obj);
 
         // 4.1 + 15 * 7 + (28 / 5) ^ 2
         // 1 step

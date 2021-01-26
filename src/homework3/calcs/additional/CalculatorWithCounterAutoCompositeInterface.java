@@ -2,15 +2,14 @@ package homework3.calcs.additional;
 
 import homework3.calcs.api.ICalculator;
 
-public class CalculatorWithCounterAutoInterface {
+public class CalculatorWithCounterAutoCompositeInterface {
     private long count;
 
     private final ICalculator calculator;
 
-    public CalculatorWithCounterAutoInterface(ICalculator calculator){
+    public CalculatorWithCounterAutoCompositeInterface(ICalculator calculator){
         this.calculator = calculator;
     }
-
 
     public double divide(double a, double b) {
         count++;
