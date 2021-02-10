@@ -1,5 +1,6 @@
 package homework5.runners;
 
+import homework5.comparators.StudentAgeComparator;
 import homework5.comparators.StudentNameComparator;
 import homework5.comparators.StudentScoreComparator;
 import homework5.core.GlobalCounter;
@@ -21,16 +22,23 @@ public class StudentMain {
         Supplier<Student> supplier1 = new RandomStudentSupplier(new GlobalCounter(),
                 new Java7Random());
         Supplier<Student> supplier2 = new RandomStudentSupplier(new GlobalCounter(), new Java8Random());
+        Supplier<Student> supplier3 = new RandomStudentSupplier(new GlobalCounter(), new Java8Random());
 
         Predicate<Student> predicate = new StudentAgeAndScorePredicate(12, 8);
         StudentNameComparator studentNameComparator = new StudentNameComparator();
         StudentScoreComparator studentScoreComparator = new StudentScoreComparator();
+        StudentAgeComparator studentAgeComparator = new StudentAgeComparator();
 
         // 4. Отсортировать отфильтрованных студентов по имени, от меньшему к большему. Вывести топ 10
         flow(supplier1, predicate, studentNameComparator);
-
+        System.out.println("___________________________________________________");
         // 5. Отсортировать отфильтрованных студентов по оценке, от большего к меньшему. Вывести топ 10
         flow(supplier2, predicate, studentScoreComparator.reversed());
+        System.out.println("___________________________________________________");
+        // 6. Отсортировать отфильтрованных студентов по возрасту и оценке одновременно.
+        // Вывести топ 10 в каждом возрасте (не сделано).
+        flow(supplier3, predicate, studentAgeComparator.thenComparing(studentScoreComparator.reversed()));
+        System.out.println("___________________________________________________");
     }
 
     public static void flow(Supplier<Student> supplier, Predicate<Student> predicate,
@@ -38,7 +46,7 @@ public class StudentMain {
         //2. Создать 10_000 объектов класс Student и поместить в коллекцию. Данные заполняются рандомно.
         List<Student> data = new ArrayList<>();
 
-        for (int i = 0; i < 10000; i++) {
+        for (int i = 0; i < 200; i++) {
             data.add(supplier.get());
         }
 
@@ -60,14 +68,22 @@ public class StudentMain {
 //        }
 
         SortUtils.shakerSort(filteredStudent, comparator);
+
         printTop10(filteredStudent);
 
     }
 
     public static void printTop10(List<Student> filteredStudents) {
-        for (int i = 0; i < 10; i++) {
-            System.out.println(filteredStudents.get(i));
+        if (filteredStudents.size() >= 10) {
+            for (int i = 0; i < 10; i++) {
+                System.out.println(filteredStudents.get(i));
+            }
+        } else {
+            for (Student filteredStudent : filteredStudents) {
+                System.out.println(filteredStudent);
+            }
         }
     }
 }
+
 
