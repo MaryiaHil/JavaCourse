@@ -46,7 +46,7 @@ public class StudentMain {
         //2. Создать 10_000 объектов класс Student и поместить в коллекцию. Данные заполняются рандомно.
         List<Student> data = new ArrayList<>();
 
-        for (int i = 0; i < 200; i++) {
+        for (int i = 0; i < 10000; i++) {
             data.add(supplier.get());
         }
 
