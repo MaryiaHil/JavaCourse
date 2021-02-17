@@ -1,4 +1,4 @@
-package homework6;
+package homework6.runners;
 
 import homework6.dto.TextSpliterator;
 import homework6.dto.api.ITextSpliterator;
@@ -40,16 +40,16 @@ public class ReadFileMain2 {
 
         sortedData.sort(comparator.reversed());
 
-        printTop10(sortedData);
+        printTopN(sortedData, 20);
     }
 
-    public static <E> void printTop10(List<E> list) {
-        if (list.size() < 10) {
+    public static <E> void printTopN(List<E> list, int number) {
+        if (list.size() < number) {
             for (E e : list) {
                 System.out.println(e);
             }
         } else {
-            for (int i = 0; i < 10; i++) {
+            for (int i = 0; i < number; i++) {
                 System.out.println(list.get(i));
             }
         }

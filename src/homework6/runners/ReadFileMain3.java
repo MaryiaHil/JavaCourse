@@ -1,4 +1,4 @@
-package homework6;
+package homework6.runners;
 
 import homework6.dto.EasySearch;
 import homework6.dto.api.ISearchEngine;
