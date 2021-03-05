@@ -1,5 +1,6 @@
 package homework2.loops;
 
+import java.util.Arrays;
 import java.util.Random;
 
 /**
@@ -7,39 +8,23 @@ import java.util.Random;
  * В конце в консоль вывести сообщение со значением до переполнения и после переполнения.
  * Умножать на: 1.4.1. 3, 1.4.2. 188, 1.4.3. -19, 1.4.4. Да и вообще на любое целочисленное
  */
-public class LongNumberMain {
+public class LongNumber {
 
-    public static void main(String[] args) {
-        long a = 1L;
+//    public static void main(String[] args) {
+//        System.out.println(Arrays.toString(beforeAfterOverflow(8888889999999999999L, 5)));
+//    }
 
-        // 1.4.1
-        int b = 3;
-
-        printBeforeAfterOverflow(a, b);
-
-        // 1.4.2.
-        b = 188;
-        printBeforeAfterOverflow(a, b);
-
-        // 1.4.3.
-        b = -19;
-        printBeforeAfterOverflow(a, b);
-
-        // 1.4.4.
-        Random random = new Random();
-        b = random.nextInt();
-        printBeforeAfterOverflow(a, b);
-    }
-
-    public static void printBeforeAfterOverflow(long originalNumber, int multiplier) {
+    public static long[] beforeAfterOverflow(long originalNumber, int multiplier) {
+        long[] arr = new long[2];
         if (multiplier > 0) {
             long previousValue = 0;
             while (originalNumber > 0) {
                 previousValue = originalNumber;
                 originalNumber *= multiplier;
             }
-            System.out.println("The number just before overflow: " + previousValue);
-            System.out.println("The number after overflow: " + originalNumber);
+            arr[0] = previousValue;
+            arr[1] = originalNumber;
+            return arr;
         } else {
             originalNumber = -originalNumber;
             long previousValue = 0;
@@ -48,8 +33,9 @@ public class LongNumberMain {
                 originalNumber = Math.abs(originalNumber);
                 originalNumber *= multiplier;
             }
-            System.out.println("The number just before overflow: " + previousValue);
-            System.out.println("The number after overflow: " + originalNumber);
+            arr[0] = previousValue;
+            arr[1] = originalNumber;
+            return arr;
         }
     }
 }

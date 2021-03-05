@@ -1,4 +1,4 @@
-package taskcode;
+package homework1.taskcode;
 
 import java.util.Scanner;
 
