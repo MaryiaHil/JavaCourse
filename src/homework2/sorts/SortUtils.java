@@ -2,7 +2,7 @@ package homework2.sorts;
 
 import java.util.Random;
 
-public class SortMethods {
+public class SortUtils {
 
     // Bubble sorting algorithm
     public static void bubbleSort(int[] arr) {

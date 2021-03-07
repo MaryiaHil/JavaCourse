@@ -11,7 +11,7 @@ import java.util.Random;
 public class LongNumber {
 
 //    public static void main(String[] args) {
-//        System.out.println(Arrays.toString(beforeAfterOverflow(8888889999999999999L, 5)));
+//        System.out.println(Arrays.toString(beforeAfterOverflow(1000000, 5)));
 //    }
 
     public static long[] beforeAfterOverflow(long originalNumber, int multiplier) {

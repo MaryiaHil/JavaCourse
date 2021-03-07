@@ -15,13 +15,20 @@ public class ArgumentFactorial {
     public static String factorial(int number) {
         long counter = 1;
         StringBuilder builder = new StringBuilder();
-        for (int i = 1; i <= number; i++) {
-            counter *= i;
-            builder.append(i).append(" * ");
+        if(number == 0){
+            return "1";
+        } else if (number < 0){
+            return "Enter another number";
         }
-        builder.deleteCharAt(builder.length() - 1);
-        builder.deleteCharAt(builder.length() - 1);
-        builder.append("= ").append(counter);
+        for (int i = 1; i <= number; i++) {
+            if(i != number) {
+                counter *= i;
+                builder.append(i).append(" * ");
+            } else {
+                counter *= i;
+                builder.append(i).append(" = ").append(counter);
+            }
+        }
         return builder.toString();
     }
 }

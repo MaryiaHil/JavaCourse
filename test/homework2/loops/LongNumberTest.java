@@ -1,27 +1,20 @@
 package homework2.loops;
 
-import homework2.loops.LongNumber;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.Arguments;
-import org.junit.jupiter.params.provider.MethodSource;
-
-import java.util.stream.Stream;
+import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.junit.jupiter.params.provider.Arguments.arguments;
 
 public class LongNumberTest {
 
-    @ParameterizedTest
-    @MethodSource("argumentsProvider")
-    public void checkLongNumberOverflow(long originalNumber, int multiplier, long[] result){
-        assertArrayEquals(result, LongNumber.beforeAfterOverflow(originalNumber, multiplier));
-    }
-
-    static Stream<Arguments> argumentsProvider() {
-        return Stream.of(
-                arguments(6, 6, new long []{4738381338321616896L, -8463200117489401856L}),
-                arguments(8888889999999999999L, 5, new long []{3086283813424962959L, -3015325006584736821L})
-        );
+    @Test
+    public void checkLongNumberOverflow(){
+        assertArrayEquals(new long []{4052555153018976267L, -6289078614652622815L},
+                LongNumber.beforeAfterOverflow(1, 3));
+        assertArrayEquals(new long []{1560496482665168896L, -1774566438301073408L},
+                LongNumber.beforeAfterOverflow(1, 188));
+        assertArrayEquals(new long []{-799006685782884121L, 3265617043834753317L},
+                LongNumber.beforeAfterOverflow(1, -19));
+        assertArrayEquals(new long []{3133711272077241920L, -2778187713323342016L},
+                LongNumber.beforeAfterOverflow(1000000, 5));
     }
 }

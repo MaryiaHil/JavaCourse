@@ -2,7 +2,7 @@ package homework2.sorts;
 
 import java.util.Arrays;
 
-import static homework2.sorts.SortMethods.*;
+import static homework2.sorts.SortUtils.*;
 
 /**
  * Выполнить сортировку массива с числами. !!!!ВНИМАНИЕ!!!! код сортировок в данном ДЗ не должен дублироваться и

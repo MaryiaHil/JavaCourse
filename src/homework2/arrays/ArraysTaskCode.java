@@ -2,29 +2,30 @@ package homework2.arrays;
 
 import java.util.Arrays;
 
-public class ArraysTaskCodeMain {
+public class ArraysTaskCode {
 
     public static void main(String[] args) {
-        int[] newArr = {14, 65, 3, 9, 17, 4, 6, 5};
+        int[] newArr = {-64, 2, 5, 54};
         System.out.println("The amount of even positive numbers is " + checkPositiveEvenNumbers(newArr));
         System.out.println("Out of even indices the maximum value is " + findMaxElement(newArr));
-        lessThanAverage(newArr);
+        System.out.println(lessThanAverage(newArr));
         int[] newArr2 = findTwoMinElements(newArr);
         System.out.println("2 minimum values are " + Arrays.toString(newArr2));
         System.out.println("The sum of all array digits is " + sumArrayDigits(newArr));
-        shrinkArray(newArr, 5, 9);
         System.out.println("The changed array is: " + Arrays.toString(newArr));
+        shrinkArray(newArr, 0, 5);
+        System.out.println("shrunk " + Arrays.toString(newArr));
     }
 
     // 2.4.1 Сумма четных положительных элементов массива
     public static int checkPositiveEvenNumbers(int[] arr) {
-        int counter = 0;
+        int sum = 0;
         for (int value : arr) {
             if (value % 2 == 0 && value >= 0) {
-                counter++;
+                sum += value;
             }
         }
-        return counter;
+        return sum;
     }
 
     // 2.4.2 Максимальный из элементов массива с четными индексами
@@ -39,24 +40,27 @@ public class ArraysTaskCodeMain {
     }
 
     // 2.4.3 Элементы массива, которые меньше среднего арифметического
-    public static void lessThanAverage(int[] arr) {
+    public static String lessThanAverage(int[] arr) {
         double sum = 0;
+        StringBuilder builder = new StringBuilder();
         for (int value : arr) {
             sum += value;
         }
         double avg = sum / arr.length;
 
-        System.out.print("These elements are less than arithmetic average " + "(" + avg + ") of all elements: ");
         for (int value : arr) {
             if (value < avg) {
-                System.out.print(value + " ");
+                builder.append(value).append(" ");
             }
         }
-        System.out.println("");
+        return builder.toString();
     }
 
     // 2.4.4 Найти два наименьших (минимальных) элемента массива
     public static int[] findTwoMinElements(int[] arr) {
+        if(arr.length <= 1){
+            return null;
+        }
         int min1 = arr[0];
         int min2 = arr[1];
         if (min2 < min1) {
@@ -78,18 +82,19 @@ public class ArraysTaskCodeMain {
     // Освободившиеся в конце массива элементы заполнить нулями.
     public static void shrinkArray(int[] arr, int a, int b) {
         int i = 0;
-        int n = arr.length;
-        while (i < n) {
+        int arrSize = arr.length;
+        if(arrSize <= 1 || b > arrSize || a > arrSize){
+            return;
+        }
+        while (i < arrSize) {
             if (arr[i] >= a && arr[i] <= b) {
-                n--;
-                for (int j = i; j < n; j++) {
-                    arr[j] = arr[j + 1];
-                }
+                arrSize--;
+                if (arrSize - i >= 0) System.arraycopy(arr, i + 1, arr, i, arrSize - i);
             } else {
                 i++;
             }
         }
-        for (int k = n; k < arr.length; k++) {
+        for (int k = arrSize; k < arr.length; k++) {
             arr[k] = 0;
         }
     }
