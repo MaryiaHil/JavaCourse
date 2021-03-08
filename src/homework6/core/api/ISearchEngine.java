@@ -1,4 +1,4 @@
-package homework6.dto.api;
+package homework6.core.api;
 
 /**
  * Написать интерфейс ISearchEngine. Это будет интерфейс в котором будут методы:

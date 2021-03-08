@@ -1,8 +1,6 @@
-package homework6.dto;
+package homework6.core;
 
-import homework6.dto.api.ISearchEngine;
-
-import java.util.Locale;
+import homework6.core.api.ISearchEngine;
 
 /**
  * 4.4* Написать декоратор для ISearchEngine который будет позволять искать данные без учёта регистра.

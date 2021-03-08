@@ -1,6 +1,6 @@
-package homework6.dto;
+package homework6.core;
 
-import homework6.dto.api.ISearchEngine;
+import homework6.core.api.ISearchEngine;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -13,10 +13,11 @@ public class RegExSearch implements ISearchEngine {
 
     @Override
     public long search(String text, String word) {
+        String tempText = " " + text;
         long counter = 0;
-        String wordRegex = "[^-\\dА-яёЁ]" + word + "[^-\\dА-яёЁ$]";
+        String wordRegex = "[^-\\dА-яёЁ]+" + word + "[^-\\dА-яёЁ]+";
         Pattern pattern = Pattern.compile(wordRegex);
-        Matcher matcher = pattern.matcher(text);
+        Matcher matcher = pattern.matcher(tempText);
         while (matcher.find()) {
             counter++;
         }

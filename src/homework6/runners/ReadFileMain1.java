@@ -1,7 +1,7 @@
 package homework6.runners;
 
-import homework6.dto.TextSpliterator;
-import homework6.dto.api.ITextSpliterator;
+import homework6.core.TextSpliterator;
+import homework6.core.api.ITextSpliterator;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -26,9 +26,7 @@ public class ReadFileMain1 {
         for (String word : words) {
             uniqueWord.add(word.toLowerCase());
         }
-        uniqueWord.remove("--");
-        uniqueWord.remove("-");
-        System.out.println(uniqueWord.toString());
+
         System.out.println("Количество уникальных слов: " + uniqueWord.size());
     }
 }

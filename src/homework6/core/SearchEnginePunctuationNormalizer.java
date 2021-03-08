@@ -1,6 +1,6 @@
-package homework6.dto;
+package homework6.core;
 
-import homework6.dto.api.ISearchEngine;
+import homework6.core.api.ISearchEngine;
 
 /**
  * 4.3* Написать декоратор SearchEnginePunctuationNormalizer для ISearchEngine который будет удалять
@@ -14,10 +14,10 @@ public class SearchEnginePunctuationNormalizer implements ISearchEngine {
         this.searchEngine = searchEngine;
     }
 
-
     @Override
     public long search(String text, String word) {
-        text = text.replaceAll("[^-\\dА-яёЁ]", " ");
+        text = text.replaceAll("-|--", "");
+        text = text.replaceAll("[^\\dА-яёЁ]+", " ");
         return searchEngine.search(text, word);
     }
 }

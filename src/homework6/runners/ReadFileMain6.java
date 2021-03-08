@@ -1,7 +1,7 @@
 package homework6.runners;
 
-import homework6.dto.EasySearch;
-import homework6.dto.SearchEngineIgnoreCaseDecorator;
+import homework6.core.EasySearch;
+import homework6.core.SearchEngineIgnoreCaseDecorator;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -26,6 +26,8 @@ public class ReadFileMain6 {
                 "и") + " раз(а).");
         System.out.println("Слово \"мир\" встречается в тексте: " + newSearch.search(content,
                 "мир") + " раз(а).");
+        System.out.println("Слово \"как\" встречается в тексте: " + newSearch.search(content,
+                "как") + " раз(а).");
 
     }
 }

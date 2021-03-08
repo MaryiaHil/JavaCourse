@@ -1,7 +1,7 @@
 package homework6.runners;
 
-import homework6.dto.RegExSearch;
-import homework6.dto.SearchEnginePunctuationNormalizer;
+import homework6.core.RegExSearch;
+import homework6.core.SearchEnginePunctuationNormalizer;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -19,7 +19,7 @@ public class ReadFileMain5 {
 
         SearchEnginePunctuationNormalizer newSearch = new SearchEnginePunctuationNormalizer(new RegExSearch());
 
-        System.out.println(newSearch.search(content,"и"));
+        System.out.println(newSearch.search(content,"как"));
 
     }
 

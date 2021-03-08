@@ -1,12 +1,13 @@
 package homework6.runners;
 
-import homework6.dto.TextSpliterator;
-import homework6.dto.api.ITextSpliterator;
+import homework6.core.TextSpliterator;
+import homework6.core.api.ITextSpliterator;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
+import java.util.Map.Entry;
 
 /**
  * 2.2 Найти в тексте топ N (настраиваемое значение) слов и вывести количество этих слов используя Map и List.
@@ -24,16 +25,17 @@ public class ReadFileMain2 {
         Map<String, Integer> data = new HashMap<>();
 
         for (String word : words) {
+            word = word.toLowerCase();
             int counter = data.getOrDefault(word, 0) + 1;
             data.put(word, counter);
         }
-        data.remove("--");
-        data.remove("-");
-        List<Map.Entry<String, Integer>> sortedData = new ArrayList<>(data.entrySet());
 
-        Comparator<Map.Entry<String, Integer>> comparator = new Comparator<>() {
+        Set<Entry<String, Integer>> entries = data.entrySet();
+        List<Entry<String, Integer>> sortedData = new ArrayList<>(entries);
+
+        Comparator<Entry<String, Integer>> comparator = new Comparator<>() {
             @Override
-            public int compare(Map.Entry<String, Integer> e1, Map.Entry<String, Integer> e2) {
+            public int compare(Entry<String, Integer> e1, Entry<String, Integer> e2) {
                 return Integer.compare(e1.getValue(), e2.getValue());
             }
         };

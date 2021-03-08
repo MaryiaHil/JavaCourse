@@ -1,6 +1,6 @@
-package homework6.dto;
+package homework6.core;
 
-import homework6.dto.api.ISearchEngine;
+import homework6.core.api.ISearchEngine;
 
 /**
  * 4.1 Написать класс EasySearch. Реализовать поиск используя метод indexOf из класса String.
