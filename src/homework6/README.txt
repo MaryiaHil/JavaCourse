@@ -1,32 +1,36 @@
 2.1 Найти в тексте все использованные слова и поместить их в коллекцию Set:
  - homework6.runners.ReadFileMain1.java 
- - homework6.dto.api.ITextSpliterator.java
- - homework6.dto.TextSpliterator.java
+ - homework6.core.api.ITextSpliterator.java
+ - homework6.core.TextSpliterator.java
 
 2.2 Найти в тексте топ N (настраиваемое значение) слов и вывести количество этих слов используя Map и List. 
 Отсортировать по количеству. Распечатать в консоль: 
  - homework6.runners.ReadFileMain2.java 
- - homework6.dto.api.ITextSpliterator.java
- - homework6.dto.TextSpliterator.java
+ - homework6.core.api.ITextSpliterator.java
+ - homework6.core.TextSpliterator.java
 
 3. Написать интерфейс ISearchEngine:
- - homework6.dto.api.ISearchEngine.java
+ - homework6.core.api.ISearchEngine.java
 
 4.1 Написать класс EasySearch:
- - homework6.dto.EasySearch.java
+ - homework6.core.EasySearch.java
  - homework6.runners.ReadFileMain3.java
 
 4.2* Написать класс RegExSearch реализующий интерфейс ISearchEngine. Реализовать поиск при помощи класса Matcher:
- - homework6.dto.RegExSearch.java
+ - homework6.core.RegExSearch.java
  - homework6.runners.ReadFileMain4.java
 
 4.3* Написать декоратор SearchEnginePunctuationNormalizer для ISearchEngine который будет удалять нежелательные символы:
- - homework6.dto.SearchEnginePunctuationNormalizer.java
+ - homework6.core.SearchEnginePunctuationNormalizer.java
  - homework6.runners.ReadFileMain5.java
 
 4.4* Написать декоратор для ISearchEngine который будет позволять искать данные без учёта регистра:
- - homework6.dto.SearchEngineIgnoreCaseDecorator.java
+ - homework6.core.SearchEngineIgnoreCaseDecorator.java
  - homework6.runners.ReadFileMain6.java
 
 5. Используя реализации интерфейса ISearchEngine вывести информацию как часто встречаются слова "война", "и" (как союз), "мир" вне зависимости от регистра:
 - homework6.runners.ReadFileMain6.java
+6. Протестировать работу созданных реализаций интерфейса ISearchEngine передавая туда кусочки текста и слово, которое мы там ищем. Брать примеры приведённые в аннотации к заданию и ваши личные примеры отражающие сложные случаи. Например, текст "Мама мыла раму" а мы искали слово "мыл". Результат должен быть 0. и так далее. В данном задании будет оцениваться полнота и креативность тестирования.
+   Далее задания выполнять только после прохождения темы "Работа с файлами"
+7. Написать новый класс с точкой входа. При запуске программы пользователь должен передать адрес папки, из которой мы будет считывать текстовые файлы. Наполнить данную директорию книгами, 100 книг мнинимум. При запуске пользователю в консоль выдать список txt файлов и предложить выбрать текст, с которым мы будем работать. Пользователь, выбрав текст вводит то, что он хочет найти в этом тексте. После каждого ввода осуществляется поиск. Вводит пока не надоест. Результат всех его поисков должен накапливаться в файла result.txt в формате «Имя файла – слово – количество»
+- homework6.runners.ReadFileMain7

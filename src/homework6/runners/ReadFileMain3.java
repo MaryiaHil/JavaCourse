@@ -13,10 +13,18 @@ import java.nio.file.Path;
  * Данный класс ищет слова с учётом регистра
  */
 public class ReadFileMain3 {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
+
         Path fileName = Path.of("C:\\Users\\Maryia_Hil\\IdeaProjects\\JD1\\HomeWork\\src\\homework6\\" +
                 "Война и мир_книга.txt");
-        String content = Files.readString(fileName);
+
+        String content = null;
+
+        try {
+            content = Files.readString(fileName);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         ISearchEngine newSearch = new EasySearch();
 

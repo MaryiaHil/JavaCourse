@@ -14,10 +14,16 @@ import java.util.Map.Entry;
  * Отсортировать по количеству. Распечатать в консоль.
  */
 public class ReadFileMain2 {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
+
         Path fileName = Path.of("C:\\Users\\Maryia_Hil\\IdeaProjects\\JD1\\HomeWork\\src\\homework6\\" +
                 "Война и мир_книга.txt");
-        String content = Files.readString(fileName);
+        String content = null;
+        try {
+            content = Files.readString(fileName);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         ITextSpliterator spliterator = new TextSpliterator();
         String[] words = spliterator.split(content);
