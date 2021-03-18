@@ -1,4 +1,4 @@
-package homework6.runners;
+package homework6.task7and8;
 
 
 import homework6.core.RegExSearch;
@@ -18,14 +18,14 @@ import java.util.Scanner;
  * После каждого ввода осуществляется поиск. Вводит пока не надоест.
  * Результат всех его поисков должен накапливаться в файла result.txt в формате «Имя файла – слово – количество»
  */
-public class Task7 {
+public class WordSearcherInBooks {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        String dirPath = getBookDirectory(scanner);
-        Book book = getBook(scanner, dirPath);
-        searchWords(scanner, book);
-        scanner.close();
+        try (Scanner scanner = new Scanner(System.in)) {
+            String dirPath = getBookDirectory(scanner);
+            Book book = getBook(scanner, dirPath);
+            searchWords(scanner, book);
+        }
     }
 
     public static String getBookDirectory(Scanner scanner) {
@@ -33,7 +33,7 @@ public class Task7 {
         String dirPath = scanner.nextLine();
         File dir = new File(dirPath);
         if (!dir.isDirectory()) {
-            System.out.println("Такой директории нет! Попробуйте еще раз.");
+            throw new IllegalArgumentException("Такой директории нет! Попробуйте еще раз.");
         }
         File[] files = dir.listFiles();
         if (files != null) {
@@ -70,7 +70,7 @@ public class Task7 {
 
         ISearchEngine searchEngine = new SearchEngineIgnoreCaseDecorator(new RegExSearch());
 
-        try (FileWriter writer = new FileWriter("result.txt")) {
+        try (FileWriter writer = new FileWriter("result1.txt")) {
             while (true) {
                 System.out.println("Напишите слово");
                 String word = scanner.nextLine();
